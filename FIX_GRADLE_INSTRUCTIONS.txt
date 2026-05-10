@@ -1,0 +1,60 @@
+========================================
+HOW TO FIX THE GRADLE WRAPPER ERROR
+========================================
+
+The file "gradle-wrapper.jar" is missing. Here's how to fix it:
+
+METHOD 1: Browser Download (EASIEST)
+-------------------------------------
+1. Open your web browser
+2. Go to this URL:
+   https://raw.githubusercontent.com/gradle/gradle/v8.14.0/gradle/wrapper/gradle-wrapper.jar
+
+3. The file will download automatically (or right-click and "Save As")
+
+4. Move the downloaded file to this EXACT location:
+   C:\Users\Dell\OneDrive\ドキュメント\dushan_app1\android\gradle\wrapper\gradle-wrapper.jar
+
+5. Make sure the file is named exactly: gradle-wrapper.jar
+
+6. Then run: flutter run
+
+
+METHOD 2: Command Prompt
+--------------------------
+1. Open Command Prompt (Win+R, type "cmd", press Enter)
+
+2. Run these commands one by one:
+
+   cd /d C:\Users\Dell\OneDrive\ドキュメント\dushan_app1
+
+   powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/gradle/gradle/v8.14.0/gradle/wrapper/gradle-wrapper.jar' -OutFile 'android\gradle\wrapper\gradle-wrapper.jar'"
+
+3. Verify the file exists:
+   dir android\gradle\wrapper\gradle-wrapper.jar
+
+4. If you see the file listed, run: flutter run
+
+
+METHOD 3: Copy from Temp App
+-------------------------------
+If you created a temp Flutter app earlier:
+
+1. Copy this file:
+   C:\Users\Dell\temp_app_wrapper\android\gradle\wrapper\gradle-wrapper.jar
+
+2. Paste it to:
+   C:\Users\Dell\OneDrive\ドキュメント\dushan_app1\android\gradle\wrapper\gradle-wrapper.jar
+
+3. Then run: flutter run
+
+
+VERIFICATION
+------------
+After downloading, verify the file exists by running:
+   dir android\gradle\wrapper\gradle-wrapper.jar
+
+You should see a file listed (about 60-70 KB in size).
+
+
+========================================

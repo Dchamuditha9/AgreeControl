@@ -1,0 +1,43 @@
+type User @table {
+  displayName: String!
+  createdAt: Timestamp!
+  email: String
+  photoUrl: String
+}
+
+type Device @table {
+  user: User!
+  name: String!
+  deviceId: String!
+  deviceType: String!
+  createdAt: Timestamp!
+  description: String
+  location: String
+}
+
+type SensorReading @table {
+  device: Device!
+  timestamp: Timestamp!
+  sensorType: String!
+  value: Float!
+  unit: String
+}
+
+type Rule @table {
+  device: Device!
+  name: String!
+  condition: String!
+  action: String!
+  createdAt: Timestamp!
+  description: String
+  enabled: Boolean
+}
+
+type ActionLog @table {
+  device: Device!
+  rule: Rule!
+  timestamp: Timestamp!
+  action: String!
+  status: String!
+  message: String
+}

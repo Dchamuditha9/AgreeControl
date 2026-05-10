@@ -1,0 +1,23 @@
+mutation CreateSeedData @transaction @auth(level: PUBLIC, insecureReason: "This operation is intended for initial data seeding and is safe to expose.") {
+  # Insert seed data for various entities
+  entityType1_insertMany(data: [
+    {
+      field1: "value1",
+      field2: "value2"
+    },
+    {
+      field1: "value3",
+      field2: "value4"
+    }
+  ])
+  entityType2_insertMany(data: [
+    {
+      fieldA: "valueA",
+      fieldB: "valueB"
+    },
+    {
+      fieldA: "valueC",
+      fieldB: "valueD"
+    }
+  ])
+}

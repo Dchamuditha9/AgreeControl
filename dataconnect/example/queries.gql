@@ -1,0 +1,29 @@
+mutation CreateNewUser($displayName: String!, $email: String, $photoUrl: String) @auth(level: USER) {
+  user_insert(data: {displayName: $displayName, email: $email, photoUrl: $photoUrl, createdAt_expr: "request.time"})
+}
+
+query GetMyDevices @auth(level: USER) {
+  devices(where: {userId: {eq_expr: "auth.uid"}}) {
+    id
+    name
+    description
+    deviceType
+    deviceId
+    location
+    createdAt
+  }
+}
+
+mutation CreateNewRule($deviceId: UUID!, $action: String!, $condition: String!, $description: String, $enabled: Boolean!, $name: String!) @auth(level: USER) {
+  rule_insert(data: {deviceId: $deviceId, action: $action, condition: $condition, description: $description, enabled: $enabled, name: $name, createdAt_expr: "request.time"})
+}
+
+query ListAllSensorReadingsForDevice($deviceId: UUID!) @auth(level: USER) {
+  sensorReadings(where: {deviceId: {eq: $deviceId}}) {
+    id
+    sensorType
+    timestamp
+    unit
+    value
+  }
+}
